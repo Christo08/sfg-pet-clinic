@@ -1,6 +1,6 @@
 package guru.springframework.sfgpetclinic.model;
 
-public class PetTye {
+public class PetTye extends BaseEntity{
     private String name;
 
     public String getName() {
