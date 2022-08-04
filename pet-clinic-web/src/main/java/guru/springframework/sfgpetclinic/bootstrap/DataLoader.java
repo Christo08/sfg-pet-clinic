@@ -1,6 +1,7 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
 import guru.springframework.sfgpetclinic.model.Owner;
+import guru.springframework.sfgpetclinic.model.Pet;
 import guru.springframework.sfgpetclinic.model.PetType;
 import guru.springframework.sfgpetclinic.model.Vet;
 import guru.springframework.sfgpetclinic.services.OwnerService;
@@ -8,6 +9,8 @@ import guru.springframework.sfgpetclinic.services.PetTypeService;
 import guru.springframework.sfgpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -33,14 +36,41 @@ public class DataLoader implements CommandLineRunner {
         PetType savedCatPetType =petTypeService.save(cat);
 
         Owner owner1 = new Owner();
+        Pet owner1Pets1 = new Pet();
+        owner1Pets1.setPetTye(savedDogPetType);
+        owner1Pets1.setOwner(owner1);
+        owner1Pets1.setBirthDate(LocalDate.now());
+        owner1Pets1.setName("G-Dog");
+
+        Pet owner1Pets2 = new Pet();
+        owner1Pets2.setPetTye(savedDogPetType);
+        owner1Pets2.setOwner(owner1);
+        owner1Pets2.setBirthDate(LocalDate.now());
+        owner1Pets1.setName("H-Dog");
+
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
+        owner1.setAddress("123 Brickerel");
+        owner1.setCity("Miami");
+        owner1.setTelephone("1231231234");
+        owner1.getPets().add(owner1Pets1);
+        owner1.getPets().add(owner1Pets2);
 
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
+        Pet owner2Pets = new Pet();
+        owner2Pets.setPetTye(savedCatPetType);
+        owner2Pets.setOwner(owner1);
+        owner2Pets.setBirthDate(LocalDate.now());
+        owner2Pets.setName("A-Cat");
+
         owner2.setFirstName("Fiona");
         owner2.setLastName("Glename");
+        owner2.setAddress("123 Brickerel");
+        owner2.setCity("Miami");
+        owner2.setTelephone("1231231234");
+        owner2.getPets().add(owner2Pets);
 
         ownerService.save(owner2);
 
