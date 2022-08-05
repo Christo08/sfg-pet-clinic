@@ -21,9 +21,9 @@ public class SpecialtyServiceSDJpa implements SpecialtyService {
 
     @Override
     public Set<Specialty> findAll() {
-        Set<Specialty> vets = new HashSet<>();
-        specialtyRepositories.findAll().forEach(vet -> vets.add(vet));
-        return vets;
+        Set<Specialty> specialties = new HashSet<>();
+        specialtyRepositories.findAll().forEach(specialty -> specialties.add(specialty));
+        return specialties;
     }
 
     @Override
