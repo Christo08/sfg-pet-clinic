@@ -18,7 +18,7 @@ import java.util.Set;
 public class Pet extends  BaseEntity{
     @ManyToOne
     @JoinColumn(name = "type_id")
-    private PetType petTye;
+    private PetType petType;
 
     @ManyToOne
     @JoinColumn(name = "owner_id")

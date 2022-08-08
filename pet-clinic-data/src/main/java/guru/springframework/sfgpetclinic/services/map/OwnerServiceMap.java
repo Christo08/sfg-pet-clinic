@@ -25,9 +25,9 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long>
         if (object != null) {
             if (object.getPets() != null) {
                 object.getPets().forEach(pet -> {
-                    if(pet.getPetTye() != null){
-                        if (pet.getPetTye().getId() == null) {
-                            pet.setPetTye(petTypeService.save(pet.getPetTye()));
+                    if(pet.getPetType() != null){
+                        if (pet.getPetType().getId() == null) {
+                            pet.setPetType(petTypeService.save(pet.getPetType()));
                         }
                     }else {
                         throw new RuntimeException("Pet Type is required");
